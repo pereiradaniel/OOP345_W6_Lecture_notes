@@ -97,6 +97,7 @@ int main()
 	/*bubbleSort(arr, 7, cmpF);
 	bubbleSort(arr, 7, cmpFO);*/
 	
-	bubbleSort(arr, 7, cmpL);
+	//bubbleSort(arr, 7, cmpL);
+	bubbleSort(arr, 7, [](int a, int b) { return a < b; });
 	display(arr, 7);
 }
