@@ -38,7 +38,7 @@ bool desc(int a, int b)
 }
 
 template<typename T>
-void bubbleSort(int* arr, size_t n, T cmp)
+void bubbleSort(int* arr, size_t n, T cmp) // 3rd argument is template
 {
 	for (auto i = 0u; i < n - 1; ++i)
 		for (auto j = i + 1; j < n; ++j)
@@ -60,8 +60,8 @@ int main()
 	string str = "Hello";
 	auto cmpL = [=, &str](int a, int b) -> bool	// [=] Catches all vars.
 	{
-		cout << "A: " << a << " B: " << b << "   " << str << endl;
-		str += " World";
+		// cout << "A: " << a << " B: " << b << "   " << str << endl;
+		str += " 1";
 		return a > b;
 	};
 	
@@ -94,6 +94,9 @@ int main()
 	int arr[]{ 4, 6, 98, 1, -5, 5, 78 };
 	display(arr, sizeof(arr) / sizeof(arr[0]));
 
-	bubbleSort(arr, 7, cmpF);
+	/*bubbleSort(arr, 7, cmpF);
+	bubbleSort(arr, 7, cmpFO);*/
+	
+	bubbleSort(arr, 7, cmpL);
 	display(arr, 7);
 }
