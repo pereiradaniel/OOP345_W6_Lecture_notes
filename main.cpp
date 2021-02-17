@@ -63,11 +63,13 @@ int main()
 		return a > b;
 	};
 	
+	cout << str << endl; // str not changed yet
+
 	bool res = cmpL(3, 9);	// Catch the result in a bool variable.
 
 	// cout << "Should I switch? " << cmpFO(12, 9) << endl;
 
-	cout << str << endl;
+	cout << str << endl; // str has been changed
 	
 #pragma region Users_Choice
 	char choice = '\0';
