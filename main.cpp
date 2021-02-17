@@ -1,4 +1,6 @@
 #include <iostream>
+#include <typeinfo>
+
 using namespace std;
 
 void display(int* arr, size_t size)
@@ -63,7 +65,8 @@ int main()
 		return a > b;
 	};
 	
-	cout << str << endl; // str not changed yet
+	cout << typeid(cmpL).name() << endl;
+	// cout << str << endl; // str not changed yet
 
 	bool res = cmpL(3, 9);	// Catch the result in a bool variable.
 
