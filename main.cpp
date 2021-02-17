@@ -56,16 +56,18 @@ int main()
 
 	// Lambda expression
 	string str = "Hello";
-	auto cmpL = [=](int a, int b) -> bool	// [=] Catches all vars.
+	auto cmpL = [=, &str](int a, int b) -> bool	// [=] Catches all vars.
 	{
 		cout << "A: " << a << " B: " << b << "   " << str << endl;
-		return true;
+		str += " World";
+		return a > b;
 	};
 	
 	bool res = cmpL(3, 9);	// Catch the result in a bool variable.
 
 	// cout << "Should I switch? " << cmpFO(12, 9) << endl;
 
+	cout << str << endl;
 	
 #pragma region Users_Choice
 	char choice = '\0';
