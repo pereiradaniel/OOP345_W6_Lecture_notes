@@ -52,11 +52,22 @@ void bubbleSort(int* arr, size_t n, T cmp)
 int main()
 {
 	Comparator cmpFO;	// This instance can be used like a function!
+	bool (*cmpF)(int, int) = nullptr; // pointer to a function that returns bool.
+
+	// Lambda expression
+	string str = "Hello";
+	auto cmpL = [=](int a, int b) -> bool	// [=] Catches all vars.
+	{
+		cout << "A: " << a << " B: " << b << "   " << str << endl;
+		return true;
+	};
+	
+	bool res = cmpL(3, 9);	// Catch the result in a bool variable.
 
 	// cout << "Should I switch? " << cmpFO(12, 9) << endl;
 
-	bool (*cmpF)(int, int) = nullptr; // pointer to a function that returns bool.
-
+	
+#pragma region Users_Choice
 	char choice = '\0';
 	cout << "Asc/Desc?: ";
 	cin >> choice;
@@ -71,6 +82,7 @@ int main()
 		cmpFO.m_order = Order::DESC;
 		cmpF = desc;
 	}
+#pragma endregion
 
 	int arr[]{ 4, 6, 98, 1, -5, 5, 78 };
 	display(arr, sizeof(arr) / sizeof(arr[0]));
